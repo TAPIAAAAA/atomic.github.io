@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Erick es muy guapo?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .question {
+            font-size: 24px;
+        }
+
+        #answer-si {
+            font-size: 16px;
+            font-weight: bold;
+            color: green;
+            transition: font-size 0.3s ease;
+        }
+
+        #answer-no {
+            font-size: 16px;
+            font-weight: bold;
+            color: red;
+        }
+
+        #confetti {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="question" id="question">¿Erick es muy guapo?</h1>
+    
+    <button id="answer-si" onclick="handleSiClick()">Sí</button>
+    <button id="answer-no" onclick="handleNoClick()">No</button>
+
+    <div id="confetti">🎉🎉🎉🎉🎉</div>
+
+    <script>
+        function handleSiClick() {
+            document.getElementById('question').innerText = '¿Nos casamos?';
+            document.getElementById('confetti').style.display = 'block';
+        }
+
+        function handleNoClick() {
+            let siButton = document.getElementById('answer-si');
+            siButton.style.fontSize = (parseInt(window.getComputedStyle(siButton).fontSize) + 5) + 'px';
+        }
+    </script>
+
+</body>
+</html>

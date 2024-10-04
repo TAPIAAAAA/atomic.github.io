@@ -20,13 +20,14 @@
         <!-- Pregunta sobre la chica -->
         <div id="girl-question" class="hidden">
             <h2 id="girl-question-text">¿Esta chica es guapa?</h2>
-            <img src="https://via.placeholder.com/150" alt="Chica" class="girl-image">
+            <img src="atomic.jpg" alt="Chica" class="girl-image" id="girl-image">
             <button id="girl-answer-no" class="button" onclick="handleGirlNoClick()">No</button>
         </div>
     </div>
 
-    <!-- Contenedor para la lluvia de corazones -->
+    <!-- Contenedor para la lluvia de corazones y flores -->
     <div id="heart-container" class="hidden"></div>
+    <div id="flower-container" class="hidden"></div>
 
     <script>
         let isCasarse = false; // Variable para controlar si estamos en la pregunta de casarse
@@ -47,12 +48,14 @@
                 document.getElementById('girl-question').classList.add('hidden'); // Esconde la pregunta de la chica
                 document.getElementById('heart-container').classList.remove('hidden');
                 createHearts();
+                createFlowers(); // Llama a la función para crear flores
             }
         }
 
         function handleNoClick() {
             let siButton = document.getElementById('answer-si');
             siButton.style.fontSize = (parseInt(window.getComputedStyle(siButton).fontSize) + 10) + 'px';
+            siButton.style.transition = 'font-size 0.3s ease'; // Añadir transición
         }
 
         function handleGirlNoClick() {
@@ -70,6 +73,17 @@
                 heart.style.left = Math.random() * 100 + 'vw';
                 heart.style.animationDuration = Math.random() * 2 + 3 + 's'; // Duración aleatoria
                 heartContainer.appendChild(heart);
+            }
+        }
+
+        function createFlowers() {
+            const flowerContainer = document.getElementById('flower-container');
+            for (let i = 0; i < 100; i++) { // Crea 100 flores
+                const flower = document.createElement('div');
+                flower.classList.add('flower');
+                flower.style.left = Math.random() * 100 + 'vw';
+                flower.style.animationDuration = Math.random() * 3 + 3 + 's'; // Duración aleatoria
+                flowerContainer.appendChild(flower);
             }
         }
     </script>

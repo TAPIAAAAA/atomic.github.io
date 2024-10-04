@@ -30,68 +30,68 @@
     <div id="flower-container" class="hidden"></div>
 
     <script>
-        let isGirlQuestion = false; // Variable para controlar si estamos en la pregunta de la chica
+        let isGirlQuestion = false;
 
         function handleSiClick() {
             if (!isGirlQuestion) {
-                // Cambia la pregunta a "¿Esta chica es guapa?"
                 document.getElementById('question').innerText = '¿Esta chica es guapa?';
-                document.getElementById('answer-no').style.display = 'none'; // Esconde el botón "No"
-                document.getElementById('answer-si').style.display = 'none'; // Esconde el botón "Sí"
-                document.getElementById('girl-question').classList.remove('hidden'); // Muestra la nueva pregunta
-                isGirlQuestion = true; // Cambia el estado a la pregunta de la chica
+                document.getElementById('answer-no').style.display = 'none';
+                document.getElementById('answer-si').style.display = 'none';
+                document.getElementById('girl-question').classList.remove('hidden');
+                isGirlQuestion = true;
             } else {
-                // Si ya estamos en la pregunta de la chica
-                document.getElementById('girl-question').classList.add('hidden'); // Esconde la pregunta de la chica
-                document.getElementById('question').innerText = '¿Nos casamos?'; // Cambia la pregunta
-                document.getElementById('answer-no').style.display = 'block'; // Muestra de nuevo el botón "No"
-                document.getElementById('answer-si').style.display = 'block'; // Muestra de nuevo el botón "Sí"
-                document.getElementById('answer-si').onclick = handleMarriageSiClick; // Vincula al evento de matrimonio
+                document.getElementById('girl-question').classList.add('hidden');
+                document.getElementById('question').innerText = '¿Nos casamos?';
+                document.getElementById('answer-no').style.display = 'block';
+                document.getElementById('answer-si').style.display = 'block';
+                document.getElementById('answer-si').onclick = handleMarriageSiClick;
             }
         }
 
         function handleNoClick() {
             let siButton = document.getElementById('answer-si');
             siButton.style.fontSize = (parseInt(window.getComputedStyle(siButton).fontSize) + 10) + 'px';
-            siButton.style.transition = 'font-size 0.3s ease'; // Añadir transición
+            siButton.style.transition = 'font-size 0.3s ease';
         }
 
         function handleGirlNoClick() {
-            document.getElementById('girl-question').classList.add('hidden'); // Esconde la pregunta de la chica
-            document.getElementById('question').innerText = '¿Nos casamos?'; // Cambia la pregunta
-            document.getElementById('answer-si').style.display = 'block'; // Muestra el botón "Sí"
-            document.getElementById('answer-no').style.display = 'block'; // Muestra el botón "No"
+            document.getElementById('girl-question').classList.add('hidden');
+            document.getElementById('question').innerText = '¿Nos casamos?';
+            document.getElementById('answer-si').style.display = 'block';
+            document.getElementById('answer-no').style.display = 'block';
         }
 
         function handleMarriageSiClick() {
-            // Oculta las opciones de Sí y No
             document.getElementById('answer-si').style.display = 'none';
             document.getElementById('answer-no').style.display = 'none';
-            document.getElementById('ring-message').classList.remove('hidden'); // Muestra el mensaje de "anda a pedírmelo"
+            document.getElementById('ring-message').classList.remove('hidden');
             document.getElementById('heart-container').classList.remove('hidden');
             document.getElementById('flower-container').classList.remove('hidden');
             createHearts();
-            createFlowers(); // Llama a la función para crear flores
+            createFlowers();
+            document.getElementById('question').classList.add('hidden');
         }
 
         function createHearts() {
             const heartContainer = document.getElementById('heart-container');
-            for (let i = 0; i < 100; i++) { // Crea 100 corazones
+            for (let i = 0; i < 100; i++) {
                 const heart = document.createElement('div');
                 heart.classList.add('heart');
+                heart.textContent = '❤️'; /* Emoji de corazón */
                 heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = Math.random() * 2 + 3 + 's'; // Duración aleatoria
+                heart.style.animationDuration = Math.random() * 2 + 3 + 's';
                 heartContainer.appendChild(heart);
             }
         }
 
         function createFlowers() {
             const flowerContainer = document.getElementById('flower-container');
-            for (let i = 0; i < 100; i++) { // Crea 100 flores
+            for (let i = 0; i < 100; i++) {
                 const flower = document.createElement('div');
                 flower.classList.add('flower');
+                flower.textContent = '🌸'; /* Emoji de flor */
                 flower.style.left = Math.random() * 100 + 'vw';
-                flower.style.animationDuration = Math.random() * 3 + 3 + 's'; // Duración aleatoria
+                flower.style.animationDuration = Math.random() * 3 + 3 + 's';
                 flowerContainer.appendChild(flower);
             }
         }

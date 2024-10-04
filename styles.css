@@ -56,12 +56,6 @@ body {
 }
 
 /* Estilo de los efectos */
-#confetti {
-    display: none;
-    font-size: 50px;
-    margin: 20px 0;
-}
-
 #ring-message {
     font-size: 30px;
     color: #FF1493;
@@ -120,32 +114,11 @@ body {
     height: 20px;
     background-image: url('https://via.placeholder.com/20/FF69B4/FFFFFF/?text=🌸'); /* Imagen de flores */
     background-size: cover;
-    opacity: 0.7;
+    border-radius: 50%;
+    opacity: 0.8;
     animation: fall linear infinite;
-    z-index: 5;
 }
 
-@keyframes fall {
-    0% {
-        transform: translateY(-100px);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(100vh);
-        opacity: 0;
-    }
-}
-
-/* Marco con flores */
-.container::before {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    background-image: url('https://via.placeholder.com/600x400/FFB6C1/FFFFFF/?text=Flores'); /* Imagen de fondo de flores */
-    background-size: cover;
-    border-radius: 15px;
-    z-index: -1; /* Envía el marco a la parte de atrás */
+.flower:before {
+    content: '🌸'; /* Símbolo de la flor */
 }

@@ -14,29 +14,39 @@
         <button id="answer-si" class="button" onclick="handleSiClick()">Sí</button>
         <button id="answer-no" class="button" onclick="handleNoClick()">No</button>
 
-        <div id="confetti">🎉🎉🎉🎉🎉</div>
-
-        <div id="ring-message" class="hidden">
-            💍 Bueno, anda a pedírmelo de verdad 💍
-        </div>
-
-        <div id="hearts" class="hidden">
-            ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
-        </div>
+        <div id="confetti" class="hidden">🎉🎉🎉🎉🎉</div>
+        <div id="ring-message" class="hidden">💍 Bueno, anda a pedírmelo de verdad 💍</div>
     </div>
+
+    <!-- Contenedor para la lluvia de corazones -->
+    <div id="heart-container" class="hidden"></div>
 
     <script>
         function handleSiClick() {
             document.getElementById('question').innerText = '¿Nos casamos?';
             document.getElementById('confetti').style.display = 'block';
-            document.getElementById('answer-no').style.display = 'none';
-            document.getElementById('hearts').classList.add('heart-animation');
             document.getElementById('ring-message').style.display = 'block';
+            document.getElementById('answer-no').style.display = 'none';
+
+            // Muestra los corazones
+            document.getElementById('heart-container').classList.remove('hidden');
+            createHearts();
         }
 
         function handleNoClick() {
             let siButton = document.getElementById('answer-si');
             siButton.style.fontSize = (parseInt(window.getComputedStyle(siButton).fontSize) + 10) + 'px';
+        }
+
+        function createHearts() {
+            const heartContainer = document.getElementById('heart-container');
+            for (let i = 0; i < 100; i++) { // Crea 100 corazones
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = Math.random() * 2 + 3 + 's'; // Duración aleatoria para que se vea más natural
+                heartContainer.appendChild(heart);
+            }
         }
     </script>
 

@@ -1,7 +1,7 @@
 /* Estilo general del sitio */
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url('atomicc'); /* Cambia el nombre de la imagen según lo necesites */
+    background: url('atomic') no-repeat center center fixed;
     background-size: cover;
     text-align: center;
     padding: 50px;
@@ -19,6 +19,7 @@ body {
     max-width: 500px;
     margin: 0 auto;
     position: relative;
+    border: 3px solid #FF69B4; /* Borde rosado */
 }
 
 /* Estilo de la pregunta */
@@ -27,9 +28,6 @@ body {
     margin-bottom: 20px;
     color: #FF69B4;
     transition: font-size 0.3s ease;
-    border: 2px solid #FF1493; /* Borde rosa */
-    padding: 10px;
-    border-radius: 10px;
 }
 
 /* Estilo de la imagen de la chica */
@@ -111,4 +109,16 @@ body {
     position: absolute;
     font-size: 30px;
     animation: fall linear infinite;
+}
+
+/* Decoración de flores en el fondo */
+.flower-background {
+    background-image: url('https://via.placeholder.com/800x600/FFB6C1/FFFFFF/?text=Flores');
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    z-index: -1;
+    opacity: 0.4;
+    border-radius: 15px;
 }

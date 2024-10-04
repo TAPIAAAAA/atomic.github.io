@@ -16,6 +16,13 @@
 
         <div id="confetti" class="hidden">🎉🎉🎉🎉🎉</div>
         <div id="ring-message" class="hidden">💍 Bueno, anda a pedírmelo de verdad 💍</div>
+        
+        <!-- Pregunta sobre la chica -->
+        <div id="girl-question" class="hidden">
+            <h2 id="girl-question-text">¿Esta chica es guapa?</h2>
+            <img src="https://via.placeholder.com/150" alt="Chica" class="girl-image">
+            <button id="girl-answer-no" class="button" onclick="handleGirlNoClick()">No</button>
+        </div>
     </div>
 
     <!-- Contenedor para la lluvia de corazones -->
@@ -23,27 +30,36 @@
 
     <script>
         let isCasarse = false; // Variable para controlar si estamos en la pregunta de casarse
+        let isGirlQuestion = false; // Variable para controlar si estamos en la pregunta de la chica
 
         function handleSiClick() {
-            if (!isCasarse) {
-                document.getElementById('question').innerText = '¿Nos casamos?';
-                isCasarse = true; // Cambia el estado a la pregunta de casarse
-                document.getElementById('answer-no').style.display = 'block'; // Muestra la opción "No"
-                return; // Termina la función aquí
+            if (!isGirlQuestion) {
+                // Cambia la pregunta a "¿Esta chica es guapa?"
+                document.getElementById('question').innerText = '¿Esta chica es guapa?';
+                document.getElementById('answer-no').style.display = 'none'; // Esconde el botón "No"
+                document.getElementById('answer-si').style.display = 'none'; // Esconde el botón "Sí"
+                document.getElementById('girl-question').classList.remove('hidden'); // Muestra la nueva pregunta
+                isGirlQuestion = true; // Cambia el estado a la pregunta de la chica
+            } else {
+                // Si ya estamos en la pregunta de la chica
+                document.getElementById('confetti').style.display = 'block';
+                document.getElementById('ring-message').style.display = 'block';
+                document.getElementById('girl-question').classList.add('hidden'); // Esconde la pregunta de la chica
+                document.getElementById('heart-container').classList.remove('hidden');
+                createHearts();
             }
-
-            // Si ya estamos en la pregunta de casarse
-            document.getElementById('confetti').style.display = 'block';
-            document.getElementById('ring-message').style.display = 'block';
-            document.getElementById('answer-si').style.display = 'none'; // Esconde el botón "Sí"
-            document.getElementById('answer-no').style.display = 'none'; // Esconde el botón "No"
-            document.getElementById('heart-container').classList.remove('hidden');
-            createHearts();
         }
 
         function handleNoClick() {
             let siButton = document.getElementById('answer-si');
             siButton.style.fontSize = (parseInt(window.getComputedStyle(siButton).fontSize) + 10) + 'px';
+        }
+
+        function handleGirlNoClick() {
+            document.getElementById('girl-question').classList.add('hidden'); // Esconde la pregunta de la chica
+            document.getElementById('question').innerText = '¿Nos casamos?'; // Cambia la pregunta
+            document.getElementById('answer-si').style.display = 'block'; // Muestra el botón "Sí"
+            document.getElementById('answer-no').style.display = 'block'; // Muestra el botón "No"
         }
 
         function createHearts() {

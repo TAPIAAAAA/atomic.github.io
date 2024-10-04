@@ -22,13 +22,21 @@
     <div id="heart-container" class="hidden"></div>
 
     <script>
+        let isCasarse = false; // Variable para controlar si estamos en la pregunta de casarse
+
         function handleSiClick() {
-            document.getElementById('question').innerText = '¿Nos casamos?';
+            if (!isCasarse) {
+                document.getElementById('question').innerText = '¿Nos casamos?';
+                isCasarse = true; // Cambia el estado a la pregunta de casarse
+                document.getElementById('answer-no').style.display = 'block'; // Muestra la opción "No"
+                return; // Termina la función aquí
+            }
+
+            // Si ya estamos en la pregunta de casarse
             document.getElementById('confetti').style.display = 'block';
             document.getElementById('ring-message').style.display = 'block';
-            document.getElementById('answer-no').style.display = 'none';
-
-            // Muestra los corazones
+            document.getElementById('answer-si').style.display = 'none'; // Esconde el botón "Sí"
+            document.getElementById('answer-no').style.display = 'none'; // Esconde el botón "No"
             document.getElementById('heart-container').classList.remove('hidden');
             createHearts();
         }
@@ -44,7 +52,7 @@
                 const heart = document.createElement('div');
                 heart.classList.add('heart');
                 heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = Math.random() * 2 + 3 + 's'; // Duración aleatoria para que se vea más natural
+                heart.style.animationDuration = Math.random() * 2 + 3 + 's'; // Duración aleatoria
                 heartContainer.appendChild(heart);
             }
         }

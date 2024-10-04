@@ -1,0 +1,83 @@
+/* Estilo general del sitio */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #FFDEE9, #B5FFFC);
+    text-align: center;
+    padding: 50px;
+    color: #333;
+}
+
+/* Contenedor principal */
+.container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+}
+
+/* Estilo de la pregunta */
+.question {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #FF69B4;
+}
+
+/* Estilo de los botones */
+.button {
+    font-size: 20px;
+    padding: 15px 30px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #FFB6C1;
+    color: #fff;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: #FF69B4;
+}
+
+/* Estilo de los efectos */
+#confetti {
+    display: none;
+    font-size: 50px;
+    margin: 20px 0;
+}
+
+#ring-message {
+    font-size: 30px;
+    color: #FF1493;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Animación de los corazones */
+#hearts {
+    font-size: 30px;
+    color: red;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.heart-animation {
+    display: block;
+    animation: fall 3s infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(600px);
+    }
+}

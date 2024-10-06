@@ -3,99 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Erick es muy guapo?</title>
+    <title>Animal Raro de la Naturaleza</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <div class="container">
-        <h1 class="question" id="question">¿Erick es muy guapo?</h1>
-        
-        <button id="answer-si" class="button" onclick="handleSiClick()">Sí</button>
-        <button id="answer-no" class="button" onclick="handleNoClick()">No</button>
+    <!-- Título grande -->
+    <h1 class="title">ANIMAL RARO DE LA NATURALEZA</h1>
 
-        <!-- Pregunta sobre la chica -->
-        <div id="girl-question" class="hidden">
-            <h2 id="girl-question-text">¿Esta chica es guapa?</h2>
-            <img src="atomic.jpg" alt="Chica" class="girl-image" id="girl-image">
-            <button id="girl-answer-no" class="button" onclick="handleGirlNoClick()">No</button>
-        </div>
-
-        <!-- Mensaje de matrimonio y lluvia de corazones -->
-        <div id="ring-message" class="hidden">💍 Bueno, anda a pedírmelo de verdad 💍</div>
+    <!-- Contenedor para el video con borde -->
+    <div class="video-container">
+        <video width="600" controls>
+            <source src="atomiccc.mp4" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
     </div>
-
-    <!-- Contenedor para la lluvia de corazones y flores -->
-    <div id="heart-container" class="hidden"></div>
-    <div id="flower-container" class="hidden"></div>
-
-    <script>
-        let isGirlQuestion = false;
-
-        function handleSiClick() {
-            if (!isGirlQuestion) {
-                document.getElementById('question').innerText = '¿Esta chica es guapa?';
-                document.getElementById('answer-no').style.display = 'none';
-                document.getElementById('answer-si').style.display = 'none';
-                document.getElementById('girl-question').classList.remove('hidden');
-                isGirlQuestion = true;
-            } else {
-                document.getElementById('girl-question').classList.add('hidden');
-                document.getElementById('question').innerText = '¿Nos casamos?';
-                document.getElementById('answer-no').style.display = 'block';
-                document.getElementById('answer-si').style.display = 'block';
-                document.getElementById('answer-si').onclick = handleMarriageSiClick;
-            }
-        }
-
-        function handleNoClick() {
-            let siButton = document.getElementById('answer-si');
-            siButton.style.fontSize = (parseInt(window.getComputedStyle(siButton).fontSize) + 10) + 'px';
-            siButton.style.transition = 'font-size 0.3s ease';
-        }
-
-        function handleGirlNoClick() {
-            document.getElementById('girl-question').classList.add('hidden');
-            document.getElementById('question').innerText = '¿Nos casamos?';
-            document.getElementById('answer-si').style.display = 'block';
-            document.getElementById('answer-no').style.display = 'block';
-        }
-
-        function handleMarriageSiClick() {
-            document.getElementById('answer-si').style.display = 'none';
-            document.getElementById('answer-no').style.display = 'none';
-            document.getElementById('ring-message').classList.remove('hidden');
-            document.getElementById('heart-container').classList.remove('hidden');
-            document.getElementById('flower-container').classList.remove('hidden');
-            createHearts();
-            createFlowers();
-            document.getElementById('question').classList.add('hidden'); // Ocultar la pregunta final
-        }
-
-        function createHearts() {
-            const heartContainer = document.getElementById('heart-container');
-            for (let i = 0; i < 100; i++) {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.textContent = '❤️'; /* Emoji de corazón */
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = Math.random() * 2 + 3 + 's';
-                heartContainer.appendChild(heart);
-            }
-        }
-
-        function createFlowers() {
-            const flowerContainer = document.getElementById('flower-container');
-            for (let i = 0; i < 100; i++) {
-                const flower = document.createElement('div');
-                flower.classList.add('flower');
-                flower.textContent = '🌸'; /* Emoji de flor */
-                flower.style.left = Math.random() * 100 + 'vw';
-                flower.style.animationDuration = Math.random() * 3 + 3 + 's';
-                flowerContainer.appendChild(flower);
-            }
-        }
-    </script>
 
 </body>
 </html>
